@@ -61,19 +61,7 @@ function returnFnResult(fn) {
    console.log(f()); // выведет 13
  */
 function returnCounter(number) {
-  if (number === undefined) {
-    number = 0;
-  }
-
-  return function (int) {
-    number++;
-
-    if (int === undefined) {
-      return number;
-    } else {
-      return int++;
-    }
-  };
+return () => ++number
 }
 
 /*
