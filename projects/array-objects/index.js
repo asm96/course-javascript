@@ -11,7 +11,7 @@
  */
 function forEach(array, fn) {
   for (let i = 0; i < array.length; i = i + 1) {
-    fn.call(i + 1, array[i], i, array);
+    fn(array[i], i, array);
   }
 }
 
@@ -80,6 +80,13 @@ function upperProps(obj) {
    obj.foo = 2;
    console.log(obj.foo); // 4
  */
-function createProxy(obj) {}
+function createProxy(obj) {
+  return new Proxy(obj, {
+    set: function (obj, property, value) {
+      //console.log(`setting '${value}' to '${property}' property`);
+      return (obj[property] = value * value);
+    },
+  });
+}
 
 export { forEach, map, reduce, upperProps, createProxy };
