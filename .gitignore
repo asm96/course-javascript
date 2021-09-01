@@ -9,6 +9,3 @@ dist/
 node_modules/
 coverage/
 .eslintcache
-package.json
-package-lock.json
-.eslintrc.js
