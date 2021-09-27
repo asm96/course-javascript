@@ -73,8 +73,7 @@ function returnCounter(number = 0) {
    returnArgumentsArray(1, 2, 3) вернет [1, 2, 3]
  */
 function returnArgumentsArray() {
-  const args = Array.from(arguments);
-  return args;
+  return Array.from(arguments);
 }
 
 /*
@@ -93,8 +92,9 @@ function returnArgumentsArray() {
    console.log(newSum()) выведет 6
  */
 function bindFunction(fn, ...args) {
-  fn = fn.bind(null, ...args);
-  return fn;
+  return () => {
+    return fn.apply(null, args);
+  };
 }
 
 export {
